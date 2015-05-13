@@ -106,7 +106,7 @@ public class main {
 		passwordLogin.put("1234","lstocchi");
 		passwordLogin.put("4321","imendoza");
 		
-		System.out.println("You have to be logged for access the LTS...");
+		System.out.println("You must be logged for continue...");
 		
 		int index=0;
 		int i = 0;
