@@ -307,8 +307,12 @@ public class main {
 			case 6 : 
 				System.out.println("Saisir la plaque de la voiture qu'il faut facturer..");
 				plate = entree.next();
+				if(!vehicles.containsKey(plate)){
+					System.out.println("Cette plaque n'est pas répertoriée.");
+					break;
+				}
 				int price = getPrice(vehicles.get(plate));
-				System.out.println(price);
+				System.out.println("Ce véhicule va être facturé de "+price+"€.");
 				break;
 			case 7 :
 				int compteurTotal=compteurFR+compteurLux+compteurBel+compteurAll;
