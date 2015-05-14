@@ -15,6 +15,7 @@ public class main {
 	static int firstPlateNumber, indiceLetter, secondPlateNumber, indiceSections, year, month, day, indiceType;
 	static char firstLetter, secondLetter, thirdLetter, fourthLetter;
 	static String theType, plate;
+	static Date theDate;
 	static int formatPlate;
 	static int compteurFR = 0;
 	static int compteurLux = 0;
@@ -261,11 +262,15 @@ public class main {
 			case 4 : 
 				System.out.println("Saisir une année..");
 				year = entree.nextInt();
+				year -= 1900;
 				System.out.println("Saisir un mois..");
 				month = entree.nextInt();
+				month -= 1;
 				System.out.println("Saisir un jour..");
 				day = entree.nextInt();
-				process(registrations, e -> e.getDate().compareTo(new Date(year, month, day))==0, e -> e.getPlate(), t -> System.out.println(t));
+				theDate = new Date(year, month, day);
+				System.out.println("Voici les enregistrements du "+theDate);
+				process(registrations, e -> e.getDate().compareTo(theDate)==0, e -> e.getPlate(), t -> System.out.println(t));
 				break;
 			case 5 :
 				System.out.println(vehicles.toString());
