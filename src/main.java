@@ -51,8 +51,37 @@ public class main {
 	}
 	
 	private static int getPrice(Car car){
-		//il faut récupérer t pour ainsi faire section.getPrice
-		return sectionA12.getPrice();
+		int price = 0;
+		
+		for (Registration r : registrations) {
+			 if(r.getPlate()==car.getPlate()){
+				 switch(r.getSection()){
+				 case "A10" :
+					 price+=sectionA10.getPrice();
+					 break;
+				 case "A11" :
+					 price+=sectionA11.getPrice();
+					 break;
+				 case "A12" :
+					 price+=sectionA12.getPrice();
+					 break;
+				 case "A13" :
+					 price+=sectionA13.getPrice();
+					 break;
+				 case "A14" :
+					 price+=sectionA14.getPrice();
+					 break;
+				 case "A15" :
+					 price+=sectionA15.getPrice();
+					 break;
+				 default : 
+					 price = 0;
+					 break;
+				 }
+			 }
+		}
+		
+		return price;
 	}
 
 	public static String getLuxPlate(){
@@ -61,7 +90,7 @@ public class main {
 		indiceLetter = rand.nextInt(arrayLetter.length);
 		secondLetter = arrayLetter[indiceLetter];
 		firstPlateNumber = rand.nextInt(9929 - 1000 + 1) + 1000;
-		return ""+firstLetter+secondLetter+" "+firstPlateNumber;
+		return ""+firstLetter+secondLetter+"-"+firstPlateNumber;
 	}
 	
 	public static String getBelPlate(){
@@ -86,7 +115,7 @@ public class main {
 		indiceLetter = rand.nextInt(arrayLetter.length);
 		fourthLetter = arrayLetter[indiceLetter];
 		secondPlateNumber = rand.nextInt(9999 - 1000 + 1) + 1000;
-		return ""+firstLetter+secondLetter+" "+thirdLetter+fourthLetter+" "+secondPlateNumber;
+		return ""+firstLetter+secondLetter+"-"+thirdLetter+fourthLetter+"-"+secondPlateNumber;
 	}
 	
 	public static String getFrPlate(){
